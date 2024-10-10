@@ -290,7 +290,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                     SizedBox(
                       height: 160.h,
-                      width: 300.w,
+                      width: 350.w,
                       child: GridView.builder(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 4,
@@ -315,6 +315,9 @@ class _HomeViewState extends State<HomeView> {
                         },
                       ),
                     ),
+                    SizedBox(
+                      height: 7.h,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -327,9 +330,6 @@ class _HomeViewState extends State<HomeView> {
                           color: AppColors.lighterRed,
                         ),
                       ],
-                    ),
-                    SizedBox(
-                      height: 6.h,
                     ),
                     SizedBox(
                       height: 120.0,
