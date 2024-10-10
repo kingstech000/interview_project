@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 TextStyle headingStyle1 = const TextStyle(
-    fontFamily: "Aeonik", fontSize: 36, fontWeight: FontWeight.w100);
+  fontFamily: "Aeonik",
+  fontSize: 36,
+  fontWeight: FontWeight.w100,
+);
 
 TextStyle headingStyle2 = const TextStyle(
   fontFamily: "Aeonik",

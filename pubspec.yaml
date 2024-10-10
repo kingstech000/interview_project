@@ -83,8 +83,9 @@ flutter:
   fonts:
     - family: Aeonik
       fonts:
-        - asset: assets/fonts/Aeonik-Regular.otf
-        - asset: assets/fonts/Aeonik-Light.otf
+        - asset: assets/fonts/Aeonik-Regular.ttf
+        - asset: assets/fonts/Aeonik-Light.ttf
+          weight: 200
 
   #
   # For details regarding fonts from package dependencies,

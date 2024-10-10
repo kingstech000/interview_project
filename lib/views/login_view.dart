@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kingstech_starter_codes/core/constants/color_gradient.dart';
 import 'package:kingstech_starter_codes/core/router/routing_constants.dart';
 import 'package:kingstech_starter_codes/core/services/navigation_service.dart';
 import 'package:kingstech_starter_codes/core/utils/text.dart';
@@ -35,31 +36,7 @@ class _LoginViewState extends State<LoginView> {
           width: 1.sw,
           height: 1.sh,
           // Gradient background color
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color(0xff676059),
-                Color(0xff5f4d47),
-                Color(0xff392a25),
-                Colors.black,
-                Colors.black,
-                Colors.black,
-                Colors.black,
-                Colors.black,
-                Colors.black,
-                Colors.black,
-                Colors.black,
-                Colors.black,
-                Colors.black,
-                Colors.black,
-                Colors.black,
-                Colors.black,
-                Colors.black,
-              ],
-            ),
-          ),
+          decoration: ColorGradient.colorGradient,
           padding: EdgeInsets.symmetric(horizontal: 30.0.w),
           child: SingleChildScrollView(
             child: Column(

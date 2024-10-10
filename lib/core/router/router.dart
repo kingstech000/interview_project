@@ -21,10 +21,10 @@ class AppRouter {
 
       case NavigatorRoutes.signView:
         return _getPageRoute(
-            settings: settings, viewToShow: SignupView());
+            settings: settings, viewToShow: const SignupView());
 
       case NavigatorRoutes.otpView:
-        return _getPageRoute(settings: settings, viewToShow: OtpView());
+        return _getPageRoute(settings: settings, viewToShow: const OtpView());
 
       case NavigatorRoutes.homeView:
         return _getPageRoute(settings: settings, viewToShow: const HomeView());

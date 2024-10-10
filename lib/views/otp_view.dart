@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kingstech_starter_codes/core/constants/color_gradient.dart';
 import 'package:kingstech_starter_codes/core/router/routing_constants.dart';
 import 'package:kingstech_starter_codes/core/services/navigation_service.dart';
 import 'package:kingstech_starter_codes/core/utils/colors.dart';
@@ -8,113 +9,115 @@ import 'package:kingstech_starter_codes/widgets/app_button.dart';
 import 'package:kingstech_starter_codes/widgets/custom_back_button.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-class OtpView extends StatelessWidget {
-  OtpView({super.key});
+class OtpView extends StatefulWidget {
+  const OtpView({super.key});
 
+  @override
+  State<OtpView> createState() => _OtpViewState();
+}
+
+class _OtpViewState extends State<OtpView> {
   final NavigationService _navigationService = NavigationService.instance;
+
+  final TextEditingController _pin1Controller = TextEditingController();
+  final TextEditingController _pin2Controller = TextEditingController();
+  final FocusNode _firstFieldFocusNode = FocusNode();
+  final FocusNode _secondFieldFocusNode = FocusNode();
+
+  @override
+  void dispose() {
+    _pin1Controller.dispose();
+    _pin2Controller.dispose();
+    _firstFieldFocusNode.dispose();
+    _secondFieldFocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xff676059),
-              Color(0xff5f4d47),
-              Color(0xff392a25),
-              Colors.black,
-              Colors.black,
-              Colors.black,
-              Colors.black,
-              Colors.black,
-              Colors.black,
-              Colors.black,
-              Colors.black,
-              Colors.black,
-              Colors.black,
-              Colors.black,
-              Colors.black,
-              Colors.black,
-              Colors.black,
-            ],
-          ),
-        ),
-        child: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 20.h),
-                CustomBackButton(),
-                SizedBox(height: 40.h),
-                AppText.h1(
-                  'Verify your email',
-                  color: Colors.white,
-                  fontSize: 28.sp,
-                  fontWeight: FontWeight.bold,
-                ),
-                SizedBox(height: 10.h),
-                Column(
+      body: SafeArea(
+        child: Container(
+          decoration: ColorGradient.colorGradient,
+          child: SafeArea(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30.w),
+              child: SingleChildScrollView(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    AppText.free(
-                      'Please enter the OTP sent to',
-                      color: Colors.grey.shade400,
-                      fontSize: 16.sp,
+                    SizedBox(height: 20.h),
+                    CustomBackButton(),
+                    SizedBox(height: 40.h),
+                    AppText.h1(
+                      'Verify your email',
+                      color: Colors.white,
+                      fontSize: 28.sp,
+                      fontWeight: FontWeight.bold,
                     ),
-                    AppText.free(
-                      'tolu.ab19@gmail.com',
-                      color: AppColors.white,
-                      fontSize: 16.sp,
+                    SizedBox(height: 10.h),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AppText.free(
+                          'Please enter the OTP sent to',
+                          color: Colors.grey.shade400,
+                          fontSize: 16.sp,
+                        ),
+                        AppText.free(
+                          'tolu.ab19@gmail.com',
+                          color: AppColors.white,
+                          fontSize: 16.sp,
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-                SizedBox(height: 40.h),
-                _buildPinField(context),
-                const Spacer(),
-                AppButton.primary(
-                    onTap: () {
-                      _navigationService.navigateTo(NavigatorRoutes.homeView);
-                    },
-                    title: "Verify Email"),
-                SizedBox(height: 30.h),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        width: 50.w,
-                        height: 1.8.h,
-                        color: AppColors.white,
-                      ),
-                    ),
+                    SizedBox(height: 40.h),
+                    _buildPinField(context, _pin1Controller, _pin2Controller,
+                        _firstFieldFocusNode, _secondFieldFocusNode),
                     SizedBox(
-                      width: 5.w,
+                      height: 350.h,
                     ),
-                    Expanded(
-                      child: Container(
-                        width: 50.w,
-                        height: 1.8.h,
-                        color: AppColors.white,
+                    AppButton.primary(
+                        onTap: () {
+                          _navigationService
+                              .navigateTo(NavigatorRoutes.homeView);
+                        },
+                        title: "Verify Email"),
+                    SizedBox(height: 30.h),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            width: 50.w,
+                            height: 1.8.h,
+                            color: AppColors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 5.w,
+                        ),
+                        Expanded(
+                          child: Container(
+                            width: 50.w,
+                            height: 1.8.h,
+                            color: AppColors.white,
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(height: 30.h),
+                    Center(
+                      child: Text(
+                        'Email verification',
+                        style: TextStyle(
+                          color: Colors.grey.shade400,
+                          fontSize: 14.0,
+                        ),
                       ),
-                    )
+                    ),
                   ],
                 ),
-                SizedBox(height: 30.h),
-                Center(
-                  child: Text(
-                    'Email verification',
-                    style: TextStyle(
-                      color: Colors.grey.shade400,
-                      fontSize: 14.0,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 40.h),
-              ],
+              ),
             ),
           ),
         ),
@@ -123,17 +126,25 @@ class OtpView extends StatelessWidget {
   }
 }
 
-Widget _buildPinField(BuildContext context) {
+Widget _buildPinField(
+    BuildContext context,
+    TextEditingController pin1Controller,
+    TextEditingController pin2Controller,
+    FocusNode firstFocusNode,
+    FocusNode secondFocusNode) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
+      // First PinCodeTextField (handles first 3 digits)
       SizedBox(
         width: 135.w,
         child: PinCodeTextField(
           appContext: context,
+          controller: pin1Controller,
           length: 3,
           obscureText: false,
           animationType: AnimationType.fade,
+          focusNode: firstFocusNode,
           pinTheme: PinTheme(
             shape: PinCodeFieldShape.box,
             borderRadius: BorderRadius.circular(5),
@@ -149,7 +160,11 @@ Widget _buildPinField(BuildContext context) {
           cursorColor: Colors.white,
           textStyle: const TextStyle(color: Colors.white),
           enableActiveFill: true,
-          onChanged: (value) {},
+          onChanged: (value) {
+            if (value.length == 3) {
+              FocusScope.of(context).requestFocus(secondFocusNode);
+            }
+          },
           beforeTextPaste: (text) {
             return true;
           },
@@ -161,13 +176,17 @@ Widget _buildPinField(BuildContext context) {
         style: TextStyle(color: Colors.white, fontSize: 24.sp),
       ),
       SizedBox(width: 8.w),
+
+      // Second PinCodeTextField (handles last 3 digits)
       SizedBox(
         width: 135.w,
         child: PinCodeTextField(
           appContext: context,
+          controller: pin2Controller,
           length: 3,
           obscureText: false,
           animationType: AnimationType.fade,
+          focusNode: secondFocusNode,
           pinTheme: PinTheme(
             shape: PinCodeFieldShape.box,
             borderRadius: BorderRadius.circular(5),
@@ -183,7 +202,9 @@ Widget _buildPinField(BuildContext context) {
           cursorColor: Colors.white,
           textStyle: const TextStyle(color: Colors.white),
           enableActiveFill: true,
-          onChanged: (value) {},
+          onChanged: (value) {
+            // Handle second field change
+          },
           beforeTextPaste: (text) {
             return true;
           },
