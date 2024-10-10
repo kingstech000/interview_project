@@ -111,6 +111,7 @@ class _HomeViewState extends State<HomeView> {
                                 AppText.free(
                                   "Wallet Balance",
                                   color: AppColors.white,
+                                  fontSize: 12.sp,
                                 ),
                                 Row(
                                   children: [
@@ -140,7 +141,7 @@ class _HomeViewState extends State<HomeView> {
                                   ],
                                 ),
                                 SizedBox(
-                                  height: 5.h,
+                                  height: 10.h,
                                 ),
                                 Container(
                                   height: 30.h,
@@ -174,8 +175,8 @@ class _HomeViewState extends State<HomeView> {
                             ),
                             SizedBox(width: 8.w),
                             Container(
-                              height: 80,
-                              width: 1.8,
+                              height: 80.h,
+                              width: 1.8.w,
                               color: AppColors.black.withOpacity(0.15),
                             ),
                             SizedBox(width: 8.w),
@@ -291,12 +292,11 @@ class _HomeViewState extends State<HomeView> {
                       height: 160,
                       width: 300,
                       child: GridView.builder(
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 4,
-                                crossAxisSpacing: 8.0,
-                                mainAxisSpacing: 10.0,
-                                childAspectRatio: 1),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 4,
+                            crossAxisSpacing: 8.0.w,
+                            mainAxisSpacing: 10.0.h,
+                            childAspectRatio: 1),
                         itemCount: 8,
                         itemBuilder: (context, index) {
                           return Container(
