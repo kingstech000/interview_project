@@ -243,9 +243,9 @@ class _SignupViewState extends State<SignupView> {
                 SizedBox(
                   height: 10.h,
                 ),
-                const Text(
+                Text(
                   'Account information',
-                  style: TextStyle(color: Colors.grey, fontSize: 14),
+                  style: TextStyle(color: Colors.grey, fontSize: 14.sp),
                 ),
               ],
             ),

@@ -289,8 +289,8 @@ class _HomeViewState extends State<HomeView> {
                       height: 10.h,
                     ),
                     SizedBox(
-                      height: 160,
-                      width: 300,
+                      height: 160.h,
+                      width: 300.w,
                       child: GridView.builder(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 4,
@@ -300,8 +300,8 @@ class _HomeViewState extends State<HomeView> {
                         itemCount: 8,
                         itemBuilder: (context, index) {
                           return Container(
-                              height: 70,
-                              width: 100,
+                              height: 70.h,
+                              width: 100.w,
                               padding: const EdgeInsets.all(5),
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
@@ -453,7 +453,7 @@ class _HomeViewState extends State<HomeView> {
 
   Widget verticalDivider() {
     return Container(
-      height: 20,
+      height: 20.h,
       width: 1,
       color: AppColors.black.withOpacity(0.1),
     );

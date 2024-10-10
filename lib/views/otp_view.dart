@@ -111,7 +111,7 @@ class _OtpViewState extends State<OtpView> {
                         'Email verification',
                         style: TextStyle(
                           color: Colors.grey.shade400,
-                          fontSize: 14.0,
+                          fontSize: 14.sp,
                         ),
                       ),
                     ),
