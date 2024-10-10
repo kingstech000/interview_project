@@ -329,7 +329,7 @@ class _HomeViewState extends State<HomeView> {
                       ],
                     ),
                     SizedBox(
-                      height: 8.h,
+                      height: 6.h,
                     ),
                     SizedBox(
                       height: 120.0,
@@ -444,7 +444,7 @@ class _HomeViewState extends State<HomeView> {
         ),
         AppText.caption(
           caption,
-          fontSize: 13.sp,
+          fontSize: 12.sp,
           color: AppColors.white,
         )
       ],
